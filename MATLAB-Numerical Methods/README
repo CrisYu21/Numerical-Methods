@@ -1,0 +1,42 @@
+# 💻 MATLAB Numerical Methods & Matrix Toolkit
+
+This folder contains the complete, production-grade **MATLAB App Designer** implementation of the Numerical Methods application. It pairs a high-performance graphical dashboard with modular, vectorized math engines.
+
+---
+
+## 📁 File Manifest & Architecture
+
+The application is split cleanly into three files to separate the User Interface (Presentation) layer from the Mathematical algorithms (Business Logic):
+
+1. **`Numerical_Methods.mlapp` (Frontend Dashboard)**
+   * Built using MATLAB App Designer.
+   * Manages the visual tabs, layout grids, text input fields, and custom-styled responsive plotting axes.
+   * Contains the event callbacks that grab user input and pass them down to the math backends.
+
+2. **`root_algorithms.m` (Part A Math Engine)**
+   * A unified script containing the core root-finding routines: *Incremental Search, Bisection, Regula-Falsi, Newton-Raphson, and Secant*.
+   * Parses symbolic user equations securely using `str2sym` and converts them to high-speed `matlabFunction` handles.
+   * Compiles data into structural MATLAB tables (`table`) containing iteration-by-iteration records.
+
+3. **`matrix_toolkit.m` (Part B Math Engine)**
+   * A master router switch-block that executes the 8 matrix operations.
+   * Handles algebraic validation (dimension matching, checking for matrix singularity via determinants).
+   * Backed by MATLAB's ultra-optimized LAPACK linear systems solvers (`\`).
+
+---
+
+## 🛠️ Execution & Deployment Guide
+
+### Method 1: Running via MATLAB Online (Recommended for Instructors)
+No desktop installation or license activation is required.
+1. Log into your account at [MATLAB Online](https://matlab.mathworks.com).
+2. Click the **Upload** arrow icon in the Files panel toolbar.
+3. Select and upload all three files: `Numerical_Methods.mlapp`, `root_algorithms.m`, and `matrix_toolkit.m` into your active directory workspace.
+4. **Right-click** `Numerical_Methods.mlapp` in your files panel and select **Run**, or type `Numerical_Methods` in the Command Window.
+
+### Method 2: Running via MATLAB Desktop App
+1. Open desktop MATLAB (R2020a or newer recommended).
+2. Set your Current Folder pathway to the directory containing these three files.
+3. In the Command Window, execute:
+   >matlab
+   >Numerical_Methods
